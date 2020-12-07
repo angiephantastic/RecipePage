@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import List from './List'
 import Header from './Header'
 import Input from '../components/Input'
 import { v4 as uuidv4 } from 'uuid'
 import './App.css'
-import axios from 'axios'
+import Image from './ImageComponent'
 
 class Container extends React.Component {
     state = {
@@ -68,25 +68,6 @@ class Container extends React.Component {
         })
     }
 
-    getImage = () => {
-        const [image, setImage] = useState()
-        const [error, setError] = useState()
-
-        useEffect(() => {
-            let name = [this.state.items.name]
-            let key = "b53db84b597b4291b5110ffdd6624fe8"
-            axios.get(`https://api.spoonacular.com/food/products/search?query=${name}&apiKey=${key}`).then((response) => {
-                console.log(response.data)
-                setImage(response.data)
-                setError(null)
-            })
-            .catch((error) => {
-                setImage(null)
-                setError(error)
-            })
-        }, [])
-    }
-
     render() {
         return (
             <div className="container">
@@ -95,6 +76,7 @@ class Container extends React.Component {
                 <List items={this.state.items} 
                 handleChangeProps={this.handleCheckBox} 
                 deleteProps={this.deleteItem}/>
+                <Image/>
             </div>
         )
     }
