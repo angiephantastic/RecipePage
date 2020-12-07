@@ -1,28 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import List from './List'
 import Header from './Header'
 import Input from '../components/Input'
+import { v4 as uuidv4 } from 'uuid'
+import './App.css'
+import axios from 'axios'
 
 class Container extends React.Component {
     state = {
         items: [
             {
-                id: 1,
+                id: uuidv4(),
                 name: "Pho Bo",
                 ingredients: "Beef bones, Rice noodles, Spices",
-                favorite: false
+                favorite: false,
+                image: ""
             },
             {
-                id: 2,
+                id: uuidv4(),
                 name: "Banh mi",
                 ingredients: "Banh mi, pate, meat, veggies",
-                favorite: false
+                favorite: false,
+                image: ""
             },
             {
-                id: 3,
+                id: uuidv4(),
                 name: "Ga xa ot",
                 ingredients: "Chicken, lemongrass, chillies, fish sauce",
-                favorite: false
+                favorite: false,
+                image: ""
             }
         ]
     }
@@ -51,19 +57,39 @@ class Container extends React.Component {
 
     addRecipe = (name,ingredients) => {
         const newRecipe = {
-            id: 4,
+            id: uuidv4(),
             name: name,
             ingredients: ingredients,
-            favorite: false
+            favorite: false,
+            image: ""
         }
         this.setState({
             items: [...this.state.items, newRecipe]
         })
     }
 
+    getImage = () => {
+        const [image, setImage] = useState()
+        const [error, setError] = useState()
+
+        useEffect(() => {
+            let name = [this.state.items.name]
+            let key = "b53db84b597b4291b5110ffdd6624fe8"
+            axios.get(`https://api.spoonacular.com/food/products/search?query=${name}&apiKey=${key}`).then((response) => {
+                console.log(response.data)
+                setImage(response.data)
+                setError(null)
+            })
+            .catch((error) => {
+                setImage(null)
+                setError(error)
+            })
+        }, [])
+    }
+
     render() {
         return (
-            <div>
+            <div className="container">
                 <Header/>
                 <Input addRecipeProps={this.addRecipe}/>
                 <List items={this.state.items} 
