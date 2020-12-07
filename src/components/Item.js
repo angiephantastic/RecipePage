@@ -3,7 +3,7 @@ import React from 'react'
 class Item extends React.Component {
     render() {
         return (
-            <div>
+            <div className="item">
                 <input type="checkbox" 
                 checked={this.props.item.favorite}
                 onChange={() => this.props.handleChangeProps(this.props.item.id)}>
@@ -17,14 +17,5 @@ class Item extends React.Component {
         )
     }
 }
-
-// function Item(props) {
-//     return (
-//         <div>
-//             <li>{props.item.name}</li>
-//             <p>{props.item.ingredients}</p>
-//         </div>
-//     )
-// }
 
 export default Item

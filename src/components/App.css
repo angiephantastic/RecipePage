@@ -1,0 +1,11 @@
+* {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+}
+
+body {
+    background-color: darksalmon;
+}
