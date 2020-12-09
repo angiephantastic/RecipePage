@@ -1,103 +1,99 @@
-import React, { useEffect, useState } from 'react'
-import List from './List'
-import Header from './Header'
-import Input from '../components/Input'
-import { v4 as uuidv4 } from 'uuid'
-import './App.css'
-import axios from 'axios'
+import React from "react";
+import List from "./List";
+import Header from "./Header";
+import Input from "../components/Input";
+import { v4 as uuidv4 } from "uuid";
+import "./App.css";
+import Image from './ImageComponent'
+import "bootstrap/dist/css/bootstrap.min.css";
+import Buttons from './Navigation'
 
 class Container extends React.Component {
-    state = {
-        items: [
-            {
-                id: uuidv4(),
-                name: "Pho Bo",
-                ingredients: "Beef bones, Rice noodles, Spices",
-                favorite: false,
-                image: ""
-            },
-            {
-                id: uuidv4(),
-                name: "Banh mi",
-                ingredients: "Banh mi, pate, meat, veggies",
-                favorite: false,
-                image: ""
-            },
-            {
-                id: uuidv4(),
-                name: "Ga xa ot",
-                ingredients: "Chicken, lemongrass, chillies, fish sauce",
-                favorite: false,
-                image: ""
-            }
-        ]
-    }
+  state = {
+    items: [
+      {
+        id: uuidv4(),
+        name: "Pho Bo",
+        ingredients: "Beef bones, Rice noodles, Spices",
+        favorite: false,
+        image: "",
+      },
+      {
+        id: uuidv4(),
+        name: "Banh mi",
+        ingredients: "Banh mi, pate, meat, veggies",
+        favorite: false,
+        image: "",
+      },
+      {
+        id: uuidv4(),
+        name: "Ga xa ot",
+        ingredients: "Chicken, lemongrass, chillies, fish sauce",
+        favorite: false,
+        image: "",
+      },
+    ],
+  };
 
-    handleCheckBox = (id) => {
-        //snapshot from prevState to compare then setState to update
-        this.setState(prevState => ({
-            items: this.state.items.map(item => {
-                if (item.id === id) {
-                    item.favorite = !item.favorite
-                }
-                return item
-            })
-        }))
-    }
-
-    deleteItem = id => {
-        this.setState({
-            items: [
-                ...this.state.items.filter(item => {
-                    return item.id !== id
-                })
-            ]
-        })
-    }
-
-    addRecipe = (name,ingredients) => {
-        const newRecipe = {
-            id: uuidv4(),
-            name: name,
-            ingredients: ingredients,
-            favorite: false,
-            image: ""
+  handleCheckBox = (id) => {
+    //snapshot from prevState to compare then setState to update
+    this.setState((prevState) => ({
+      items: this.state.items.map((item) => {
+        if (item.id === id) {
+          item.favorite = !item.favorite;
         }
-        this.setState({
-            items: [...this.state.items, newRecipe]
-        })
-    }
+        return item;
+      }),
+    }));
+  };
 
-    getImage = () => {
-        const [image, setImage] = useState()
-        const [error, setError] = useState()
+  deleteItem = (id) => {
+    this.setState({
+      items: [
+        ...this.state.items.filter((item) => {
+          return item.id !== id;
+        }),
+      ],
+    });
+  };
 
-        useEffect(() => {
-            let name = [this.state.items.name]
-            let key = "b53db84b597b4291b5110ffdd6624fe8"
-            axios.get(`https://api.spoonacular.com/food/products/search?query=${name}&apiKey=${key}`).then((response) => {
-                console.log(response.data)
-                setImage(response.data)
-                setError(null)
-            })
-            .catch((error) => {
-                setImage(null)
-                setError(error)
-            })
-        }, [])
-    }
+  addRecipe = (name, ingredients) => {
+    const newRecipe = {
+      id: uuidv4(),
+      name: name,
+      ingredients: ingredients,
+      favorite: false,
+      image: "",
+    };
+    this.setState({
+      items: [...this.state.items, newRecipe],
+    });
+  };
 
-    render() {
-        return (
-            <div className="container">
-                <Header/>
-                <Input addRecipeProps={this.addRecipe}/>
-                <List items={this.state.items} 
-                handleChangeProps={this.handleCheckBox} 
-                deleteProps={this.deleteItem}/>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="container" style={{ border: "2px solid yellow" }}>
+        <Header />
+        <Buttons />
+        <div
+          className="row justify-content-center"
+          style={{ border: "2px solid black" }}
+        >
+          <div style={{ border: "2px solid pink" }}>
+            <List
+              items={this.state.items}
+              handleChangeProps={this.handleCheckBox}
+              deleteProps={this.deleteItem}
+            />
+          </div>
+        </div>
+        <div className="row justify-content-center">
+            <Input addRecipeProps={this.addRecipe} />
+          </div>
+          <Image/>
+      </div>
+    );
+  }
 }
 
-export default Container
+export default Container;
