@@ -5,7 +5,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class List extends React.Component {
   render() {
     return (
-      <div className="row justify-content-center">
+      <div 
+        className="row justify-content-center"
+        style={{ border: "2px solid pink" }}
+      >
           {this.props.items.map((item) => (
             <Item
               key={item.id}

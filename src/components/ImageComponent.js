@@ -6,15 +6,16 @@ function GetImage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let name = "pasta";
+    let name = "pho";
     let key = "b53db84b597b4291b5110ffdd6624fe8";
     axios
       .get(
-        `https://api.spoonacular.com/food/products/search?query=${name}&apiKey=${key}`
+        `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=${key}`
       )
       .then((response) => {
         console.log(response.data);
-        setImage(response.data);
+        let foodPic = response.data.results[1].image
+        setImage(foodPic)
         setError(null);
       })
       .catch((error) => {
@@ -23,13 +24,12 @@ function GetImage() {
       });
   }, []);
 
-  let renderedImage = <div>...</div>;
+  let renderedImage = <img></img>
   if (image !== null) {
-  renderedImage = <div>{image}</div>;
+  renderedImage = <img src={image}></img>;
   } else if (error !== null) {
     renderedImage = <p>{error.message}</p>;
   }
-
   return <div>{renderedImage}</div>;
 }
 

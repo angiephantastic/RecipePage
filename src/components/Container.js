@@ -79,18 +79,18 @@ class Container extends React.Component {
           className="row justify-content-center"
           style={{ border: "2px solid black" }}
         >
-          <div style={{ border: "2px solid pink" }}>
+          <div>
             <List
               items={this.state.items}
               handleChangeProps={this.handleCheckBox}
               deleteProps={this.deleteItem}
             />
+            <Image/>
           </div>
         </div>
         <div className="row justify-content-center">
             <Input addRecipeProps={this.addRecipe} />
           </div>
-          <Image/>
       </div>
     );
   }
