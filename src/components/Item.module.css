@@ -1,0 +1,10 @@
+.image{
+    background-image: url("https://img.taste.com.au/SGF3qTIo/taste/2016/11/50-slow-cooker-dinners-under-500-calories-108488-2.jpeg");
+    background-size: cover;
+    height: 230px;
+}
+
+.div{
+    border: 2px solid blue;
+    margin: 5px;
+}
