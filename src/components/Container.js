@@ -13,7 +13,7 @@ class Container extends React.Component {
     items: [
       {
         id: uuidv4(),
-        name: "Pho Bo",
+        name: "Pho",
         ingredients: "Beef bones, Rice noodles, Spices",
         favorite: false,
         image: "",
@@ -27,7 +27,7 @@ class Container extends React.Component {
       },
       {
         id: uuidv4(),
-        name: "Ga xa ot",
+        name: "Spaghetti",
         ingredients: "Chicken, lemongrass, chillies, fish sauce",
         favorite: false,
         image: "",
@@ -85,7 +85,9 @@ class Container extends React.Component {
               handleChangeProps={this.handleCheckBox}
               deleteProps={this.deleteItem}
             />
-            <Image/>
+            {/* {this.state.items.map((item) => (
+              <Image name={item.name}/>
+            ))} */}
           </div>
         </div>
         <div className="row justify-content-center">

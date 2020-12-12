@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Item.module.css";
+import ImageComponent from './ImageComponent'
 
 class Item extends React.Component {
   render() {
@@ -9,7 +10,9 @@ class Item extends React.Component {
         className="col-5"
         style={{ border: "2px solid blue", margin: "10px" }}
       >
-        <div className={styles["image"]}></div>
+        {/* <div className={styles["image"]}></div> */}
+        {/* <img src={this.props.items}></img> */}
+        <ImageComponent name = {this.props.item.name}/>
         <div style={{ border: "2px solid white" }}>
           <li>{this.props.item.name}</li>
           <p>{this.props.item.ingredients}</p>
