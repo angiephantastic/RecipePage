@@ -1,0 +1,31 @@
+@font-face{
+    font-family: Timeless;
+    src: url(../Fonts/Timeless.ttf)
+}
+
+@font-face{
+    font-family: Timeless;
+    src: url(../Fonts/Timeless.ttf)
+}
+
+* {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+}
+
+body {
+    background-color: #D36135;
+}
+
+.p{
+    font-family: HappyTime;
+    font-weight: bold;
+    text-shadow: white;
+}
+
+.addRecipeForm{
+    margin: 30px;
+}

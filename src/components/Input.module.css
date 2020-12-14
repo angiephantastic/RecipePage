@@ -1,0 +1,13 @@
+@font-face{
+    font-family: HappyTime;
+    src:url(../Fonts/HappyTime.otf)
+}
+
+.buttons{
+    background-color: #7FB069;
+    font-family: HappyTime;
+}
+
+.form{
+    background-color: #ECE4B7
+}

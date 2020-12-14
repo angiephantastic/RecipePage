@@ -3,8 +3,8 @@ import List from "./List";
 import Header from "./Header";
 import Input from "../components/Input";
 import { v4 as uuidv4 } from "uuid";
-import "./App.css";
-import Image from './ImageComponent'
+import "./Container.css";
+// import Image from './ImageComponent'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Buttons from './Navigation'
 
@@ -13,7 +13,7 @@ class Container extends React.Component {
     items: [
       {
         id: uuidv4(),
-        name: "Pho Bo",
+        name: "Pho",
         ingredients: "Beef bones, Rice noodles, Spices",
         favorite: false,
         image: "",
@@ -27,8 +27,8 @@ class Container extends React.Component {
       },
       {
         id: uuidv4(),
-        name: "Ga xa ot",
-        ingredients: "Chicken, lemongrass, chillies, fish sauce",
+        name: "Spaghetti",
+        ingredients: "Noodles, tomato sauce, cheese",
         favorite: false,
         image: "",
       },
@@ -65,19 +65,20 @@ class Container extends React.Component {
       favorite: false,
       image: "",
     };
-    this.setState({
-      items: [...this.state.items, newRecipe],
-    });
+    // this.setState({
+    //   items: [...this.state.items, newRecipe],
+    // });
   };
 
   render() {
     return (
-      <div className="container" style={{ border: "2px solid yellow" }}>
+      <div className="container">
+        {/* style={{ border: "2px solid yellow" }} */}
         <Header />
         <Buttons />
         <div
           className="row justify-content-center"
-          style={{ border: "2px solid black" }}
+          // style={{ border: "2px solid black" }}
         >
           <div>
             <List
@@ -85,11 +86,16 @@ class Container extends React.Component {
               handleChangeProps={this.handleCheckBox}
               deleteProps={this.deleteItem}
             />
-            <Image/>
+            {/* {this.state.items.map((item) => (
+              <Image name={item.name}/>
+            ))} */}
           </div>
         </div>
         <div className="row justify-content-center">
-            <Input addRecipeProps={this.addRecipe} />
+            <div className="addRecipeForm">
+            <p className="p">Add a new Recipe</p>
+              <Input addRecipeProps={this.addRecipe} />
+            </div> 
           </div>
       </div>
     );

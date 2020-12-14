@@ -7,8 +7,8 @@ class List extends React.Component {
     return (
       <div 
         className="row justify-content-center"
-        style={{ border: "2px solid pink" }}
       >
+       {/* style={{ border: "2px solid pink" }}  */}
           {this.props.items.map((item) => (
             <Item
               key={item.id}

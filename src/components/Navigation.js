@@ -1,9 +1,9 @@
+import styles from './Navigation.module.css'
+
 function Buttons() {
     return (
         <div>
-            <input type="button" value="Home"></input>
-            <input type="button" value="New Recipe"></input>
-            <input type="button" value="Contact"></input>
+            <input type="button" value="New Recipe" className={styles.buttons}></input>
         </div>
     )
 }

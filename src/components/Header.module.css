@@ -1,0 +1,8 @@
+@font-face{
+    font-family: BeautifulPeople;
+    src: url(../Fonts/BeautifulPeople.ttf)
+}
+
+.header{
+    font-family: BeautifulPeople;
+}

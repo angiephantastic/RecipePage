@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styles from './Input.module.css'
 
 class Input extends Component {
     state = [
@@ -26,8 +27,8 @@ class Input extends Component {
         return (
             <form onSubmit={this.handleSubmit} className="form">
                 <input type="text" placeholder="Add name" value={this.state.name} name="name" onChange={this.onChange} className="input-text"></input>
-                <input type="text" placeholder="Add ingredients" value={this.state.ingredients} name="ingredients" onChange={this.onChange} className="input-text"></input>
-                <input type="submit" value="submit" className="input-submit"></input>
+                <input type="text" placeholder="Add ingredients" value={this.state.ingredients} name="ingredients" onChange={this.onChange}  className="input-text"></input>
+                <input type="submit" value="submit"  className="input-submit"></input>
             </form>
         )
     }
