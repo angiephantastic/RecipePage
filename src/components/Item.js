@@ -8,14 +8,16 @@ class Item extends React.Component {
     return (
       <div
         className="col-5"
-        style={{ border: "2px solid blue", margin: "10px" }}
+        id={styles.image}
       >
         {/* <div className={styles["image"]}></div> */}
         {/* <img src={this.props.items}></img> */}
-        <ImageComponent name = {this.props.item.name}/>
-        <div style={{ border: "2px solid white" }}>
-          <li>{this.props.item.name}</li>
-          <p>{this.props.item.ingredients}</p>
+        <div>
+          <ImageComponent name = {this.props.item.name}/>
+        </div>
+        <div className={styles.textBox}>
+          <li id={styles.name}>{this.props.item.name}</li>
+          <p id={styles.ingredients}>{this.props.item.ingredients}</p>
         </div>
 
         <input
@@ -23,7 +25,7 @@ class Item extends React.Component {
           checked={this.props.item.favorite}
           onChange={() => this.props.handleChangeProps(this.props.item.id)}
         ></input>
-        <button onClick={() => this.props.deleteProps(this.props.item.id)}>
+        <button onClick={() => this.props.deleteProps(this.props.item.id)} id={styles.buttons}>
           Delete
         </button>
       </div>

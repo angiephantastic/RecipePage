@@ -1,10 +1,44 @@
-.image{
-    background-image: url("https://img.taste.com.au/SGF3qTIo/taste/2016/11/50-slow-cooker-dinners-under-500-calories-108488-2.jpeg");
-    background-size: cover;
-    height: 230px;
+@font-face{
+    font-family: BeautifulPeople;
+    src: url(../Fonts/BeautifulPeople.ttf)
 }
 
-.div{
-    border: 2px solid blue;
-    margin: 5px;
+@font-face{
+    font-family: Timeless;
+    src: url(../Fonts/Timeless.ttf)
+}
+
+@font-face{
+    font-family: HappyTime;
+    src:url(../Fonts/HappyTime.otf)
+}
+
+#image{
+    /* background-image: url("https://img.taste.com.au/SGF3qTIo/taste/2016/11/50-slow-cooker-dinners-under-500-calories-108488-2.jpeg"); */
+    background-size: cover;
+    /* height: 230px; */
+    margin: 10px;
+    border: 2px solid #7FB069;
+    background-color: #ECE4B7;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.textBox{
+    list-style-type: none;
+}
+
+#name{
+    font-family: Timeless;
+    font-weight: bold;
+    font-size: large;
+}
+
+#ingredients{
+    font-family: Timeless;
+}
+
+#buttons{
+    background-color: #7FB069;
+    font-family: HappyTime;
 }

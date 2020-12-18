@@ -3,10 +3,10 @@ import List from "./List";
 import Header from "./Header";
 import Input from "../components/Input";
 import { v4 as uuidv4 } from "uuid";
-import "./App.css";
-import Image from './ImageComponent'
+import "./Container.css";
+import Image from "./ImageComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Buttons from './Navigation'
+import Buttons from "./Navigation";
 
 class Container extends React.Component {
   state = {
@@ -28,7 +28,7 @@ class Container extends React.Component {
       {
         id: uuidv4(),
         name: "Spaghetti",
-        ingredients: "Chicken, lemongrass, chillies, fish sauce",
+        ingredients: "Noodles, garlic, tomato sauce",
         favorite: false,
         image: "",
       },
@@ -72,12 +72,14 @@ class Container extends React.Component {
 
   render() {
     return (
-      <div className="container" style={{ border: "2px solid yellow" }}>
+      <div className="container">
         <Header />
         <Buttons />
+        <div className="row justify-content-center">
+          <Input addRecipeProps={this.addRecipe}/>
+        </div>
         <div
           className="row justify-content-center"
-          style={{ border: "2px solid black" }}
         >
           <div>
             <List
@@ -90,9 +92,6 @@ class Container extends React.Component {
             ))} */}
           </div>
         </div>
-        <div className="row justify-content-center">
-            <Input addRecipeProps={this.addRecipe} />
-          </div>
       </div>
     );
   }
